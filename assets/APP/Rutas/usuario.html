@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-sm-4">
+<h2>Agregar nuevo Usuario</h2>
+<form ng-submit="agregarNuevoEntrenador()">
+            <div class="form-group">
+                <label for="idnombre">Nombre</label>
+                <input ng-model="nuevoUsuario.nombre" type="text" class="form-control" id="idnombre" placeholder="Ingresa tu Nombre" name="nombre">
+            </div>
+            <div class="form-group">
+                <label for="idapellido">Apellido</label>
+                <input ng-model="nuevoUsuario.apellido" type="text" class="form-control" id="idapellido" placeholder="Ingresa tu Apellido" name="apellido">
+            </div>
+            <div class="form-group">
+                <label for="idfecha">Fecha Nacimiento</label>
+                <input ng-model="nuevoUsuario.fechaNacimiento" type="date" class="form-control" id="idfecha" placeholder="Ingresa tu Fecha de Nacimiento" name="fecha">
+            </div>
+            <button type="submit" class="btn btn-success">Agregar Usuario</button>
+        </form>
+    </div>
+</div>
+
+
+<h1>Lista de Usuarios</h1>
+
+<div ng-repeat="variableEntrenador in entrenadores">
+    <div class="col-sm-3" ng-init="variableEntrenador.visible=false">
+        <h1>{{$index+1}} {{variableEntrenador.apellido}}</h1>
+        <h2>{{variableEntrenador.nombre}}</h2>
+        <p>Nació: {{variableEntrenador.fechaNacimiento | date}}</p>
+        <br>
+        <button ng-click="variableEntrenador.visible=!variableEntrenador.visible" class="btn btn-default">Editarme!</button>
+        <button class="btn btn-danger" ng-click="eliminarEntrenador(variableEntrenador, $index)">Eliminar</button>
+        <br><br>
+        <form class="animated bounceIn" ng-show="variableEntrenador.visible" ng-submit="editarEntrenador(variableEntrenador, $index)">
+            <div class="form-group">
+                <label for="idnombre">Nombre</label>
+                <input ng-model="entrenadores[$index].nombre" type="text" class="form-control" id="idnombre" placeholder="Actualiza tu Nombre" name="nombre">
+            </div>
+            <div class="form-group">
+                <label for="idapellido">Apellido</label>
+                <input ng-model="entrenadores[$index].apellido" type="text" class="form-control" id="idapellido" placeholder="Actualiza tu Apellido" name="apellido">
+            </div>
+            <div class="form-group" ng-init="variableEntrenador.nuevaFecha">
+                <label for="idfecha">Fecha Nacimiento</label>
+                <input ng-model="variableEntrenador.nuevaFecha" type="date" class="form-control" id="idfecha" placeholder="Actualiza tu Fecha de Nacimiento" name="fecha">
+            </div>
+            <button type="submit" class="btn btn-success">Guardar</button><br>
+            <button ng-click="borrarEntrenador(variableEntrenador.id, $index)" class="btn btn-danger">Borrar</button>
+            <br><br>
+                    
+        </form>
+        <br>
+        <a class="btn btn-success" href="#/mascotas/{{variableEntrenador.id}}">Agregar Mascotas - {{variableEntrenador.id}}</a>
+    </div>
+    </div>
+    

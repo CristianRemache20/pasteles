@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-sm-4" ng-repeat="variableUsuario in Usuario" ng-init="variableUsuario.visible=false">
+        <div class="row col-sm-8">
+        <br>
+            <h1>{{variableUsuario.nombre}} {{variableUsuario.apellido}}</h1><br>
+            <h5>{{variableUsuario.edad}} años</h5>
+            <h5>{{variableUsuario.correo}}</h5><br><br>
+            <button ng-click="variableUsuario.visible=!variableUsuario.visible" class="btn btn-default">Editar</button>&nbsp;&nbsp;
+            <a  href="#/pastel/{{variableUsuario.id}}"><button class="btn btn-default" >Pasteles</button></a><br><br>
+            <form class="animated bounceIn" ng-show="variableUsuario.visible" ng-submit="editarUsuario(variableUsuario, $index)">
+            <div class="form-group">
+                <label for="idnombre">Nombre</label>
+                <input ng-model="Usuario[$index].nombre" type="text" class="form-control" id="idnombre" placeholder="Actualiza tu Nombre" name="nombre">
+            </div>
+            <div class="form-group">
+                <label for="idapellido">Apellido</label>
+                <input ng-model="Usuario[$index].apellido" type="text" class="form-control" id="idapellido" placeholder="Actualiza tu Apellido" name="apellido">
+            </div>
+                <div class="form-group">
+                <label for="idnombre">Edad</label>
+                <input ng-model="Usuario[$index].edad" type="text" class="form-control" id="idnombre" placeholder="Actualiza tu Edad" name="nombre">
+                    </div>
+                <div class="form-group">
+                <label for="idnombre">Correo</label>
+                <input ng-model="Usuario[$index].correo" type="text" class="form-control" id="idnombre" placeholder="Actualiza tu Correo" name="nombre">
+                    </div>
+                <div class="form-group">
+                <label for="idnombre">Ciudad</label>
+                <input ng-model="Usuario[$index].ciudad" type="text" class="form-control" id="idnombre" placeholder="Actualiza tu Ciudad" name="nombre">
+                    </div>
+                <div class="form-group">
+                <label for="idnombre">Imagen</label>
+                <input ng-model="Usuario[$index].foto" type="text" class="form-control" id="idnombre" placeholder="Actualiza tu Imagen" name="nombre">
+            </div>
+            <button type="submit" ng-click="variableUsuario.visible=!variableUsuario.visible" class="btn btn-success">Guardar</button><br>
+            <br><br>
+                    
+        </form>
+        </div>
+        <div class="col-sm-4">
+            <h1>{{variableUsuario.ciudad}}</h1><br><br>
+            <img ng-src="{{variableUsuario.foto}}" alt="foto de usuario"><br>
+        </div>
+    </div>
+</div>    
+        
+
+
+

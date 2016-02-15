@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-sm-4">
+        <div class="row col-sm-8">
+        <br>
+            <h1>{{Usuario.nombre}} {{Usuario.apellido}}</h1><br>
+            <h5>{{Usuario.edad}} años</h5>
+            <h5>{{Usuario.correo}}</h5><br><br>
+            
+        </div>
+        <div class="col-sm-4">
+            <h1>{{Usuario.ciudad}}</h1><br><br>
+            <img ng-src="{{Usuario.foto}}" alt="foto de usuario"><br>
+        </div>
+        
+    </div>
+        <div class="col-sm-4">
+         <form ng-submit="agregarNuevoPastel()">
+            <div class="form-group">
+                <label for="idnombre">Nombre</label>
+                <input ng-model="nuevoPastel.nombre" type="text" class="form-control" id="idnombre" placeholder="Ingresa el Nombre" name="nombre">
+            </div>
+            <div class="form-group">
+                <label for="idapellido">Tipo</label><br>
+                <select name="nacionalidades" ng-model="nuevoPastel.tipo">
+                        <option value="hojaldre">hojaldre</option>
+                        <option value="azucarada">azucarada</option>
+                        <option value="escaldadas">escaldadas</option>
+                        <option value="reposteria">reposteria</option>
+                        </select>
+                
+            </div>
+    <div class="form-group">
+                <label for="idnombre">Foto</label>
+                <input ng-model="nuevoPastel.foto" type="text" class="form-control" id="idnombre" placeholder="Ingresa la Foto" name="nombre">
+            </div>
+             <div class="form-group">
+                <label for="idapellido">Preparacion</label>
+                 <textarea ng-model="nuevoPastel.preparacion" type="text" class="form-control" id="idapellido"  name="apellido"></textarea><br>
+            <button type="submit" class="btn btn-success">Añadir Pastel</button>
+        </form>
+            </div>
+    </div>  
+         
+</div>
+<br><br>
+<div class="row">
+     <div ng-repeat="Pastel in Usuario.pasteles">
+        <div class="col-sm-2">
+            <div>
+                <img ng-src="{{Pastel.foto}}" alt="foto del pastel"><br><br><br>
+                <form ng-submit="agregarNuevoIngrediente()">
+                    <input ng-model="nuevoIngrediente.nombre" type="text" class="form-control"  placeholder="Ingresa el ingrediente"><br>
+                    <button type="submit" class="btn btn-success">Añadir Ingrediente</button>   
+                </form><br><br>
+                <div ng-repeat="Ingrediente in Pastel.ingredientes">
+                    <h5>{{Ingrediente.nombre}}</h5><br>
+                </div>
+            </div>
+         </div>
+         <div class="col-sm-2">
+            <h1>{{Pastel.nombre}}</h1><br>
+            <h5>{{Pastel.preparacion}}</h5><br><br>
+         </div>
+         
+        </div>   
+    </div>
+
+
+
+
+
+
+
+
+
+
+

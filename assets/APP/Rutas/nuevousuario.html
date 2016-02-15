@@ -1,0 +1,29 @@
+
+<h1>Ingrese Nuevo Usuario</h1>
+<form ng-submit="agregarNuevoUsuario()">
+            <div class="form-group">
+                <label for="idnombre">Nombre</label>
+                <input ng-model="nuevoUsuario.nombre" type="text" class="form-control" id="idnombre" placeholder="Ingresa tu Nombre" name="nombre">
+            </div>
+            <div class="form-group">
+                <label for="idapellido">Apellido</label>
+                <input ng-model="nuevoUsuario.apellido" type="text" class="form-control" id="idapellido" placeholder="Ingresa tu Apellido" name="apellido">
+            </div>
+            <div class="form-group">
+                <label for="idnombre">Edad</label>
+                <input ng-model="nuevoUsuario.edad" type="text" class="form-control" id="idnombre" placeholder="Ingresa tu Edad" name="nombre">
+            </div>
+    <div class="form-group">
+                <label for="idnombre">Correo</label>
+                <input ng-model="nuevoUsuario.correo" type="text" class="form-control" id="idnombre" placeholder="Ingresa tu Correo" name="nombre">
+            </div>
+    <div class="form-group">
+                <label for="idnombre">Ciudad</label>
+                <input ng-model="nuevoUsuario.ciudad" type="text" class="form-control" id="idnombre" placeholder="Ingresa tu Ciudad" name="nombre">
+            </div>
+    <div class="form-group">
+                <label for="idnombre">Foto</label>
+                <input ng-model="nuevoUsuario.foto" type="text" class="form-control" id="idnombre" placeholder="Ingresa tu Foto" name="nombre">
+            </div>
+            <button type="submit" class="btn btn-success">Agregar Usuario</button>
+        </form>
